@@ -11,6 +11,6 @@ This application will help you manage equipment assets
 ***
 ###Frontend
 
-![Device list](C:\asset\asset\scr\devlist.PNG "Device list")
+![Device list](https://github.com/dalasidaho/asset_management/blob/master/devlist.PNG?raw=true "Device list")
 ![Customer list](C:\asset\asset\scr\customlist.PNG "Customer list")
 ![](C:\asset\asset\scr\Track.PNG "Tracking")
