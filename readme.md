@@ -10,6 +10,7 @@ This application will help you manage equipment assets
 
 ***
 ###Frontend
+
 ![Device list](C:\asset\asset\scr\devlist.PNG "Device list")
 ![Customer list](C:\asset\asset\scr\customlist.PNG "Customer list")
 ![](C:\asset\asset\scr\Track.PNG "Tracking")
