@@ -1,0 +1,58 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+{% block content %}
+{% load bootstrap4 %}
+<div class="container-fluid">
+<h1>Asset Management</h1>
+
+  <p>Welcome to <em>Asset Management</em>, a very basic Django website developed.</p>
+
+<h2>Dynamic content :)</h2>
+
+  <p>The base has the following record counts:</p>
+  <ul>
+    <li><strong>Devices:</strong> {{ num_devices }}</li>
+    <li><strong>Laptops:</strong> {{ num_lt }}</li>
+    <li><strong>Desktop:</strong> {{ num_dt }}</li>
+	<li><strong>Monitor:</strong> {{ num_mt }}</li>
+    <li><strong>Deployed:</strong> {{ num_dl_dep }}</li>
+	  <li><strong>Stock:</strong> {{ num_dv_stk }}</li>
+	  <li><strong>New:</strong> {{ num_dv_new }}</li>
+
+    <li><strong>Customers:</strong> {{ num_authors }}</li>
+  </ul>
+<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+<table class="table table-striped table-hover table-responsive table-bordered">
+	<tbody>
+		<tr>
+			<td rowspan="2">Device</td>
+			<th> Total </th>
+			<td>Laptop</td>
+			<td>Desktop</td>
+			<td>Monitor</td>
+		</tr>
+		<tr>
+			<th> {{ num_devices }}</th>
+			<td>: {{ num_lt }}</td>
+			<td>: {{ num_dt }}</td>
+			<td>: {{ num_mt }}</td>
+		</tr>
+		<tr>
+			<td rowspan="2">Inventory</td>
+			<td>Deployed:</td>
+			<td>Stock:</td>
+			<td>New:</td>
+		</tr>
+		<tr>
+			<td>{{ num_dl_dep }}</td>
+			<td>{{ num_dv_stk }}</td>
+			<td>{{ num_dv_new }}</td>
+		</tr>
+	</tbody>
+</table>
+
+</div>
+
+
+{% endblock %}

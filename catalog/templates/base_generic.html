@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% block title %}<title>Asset Management</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- CSS  -->
+
+  {% load static %}
+  <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+
+</head>
+
+<body>
+
+  <div class="container">
+{% block sidebar %}
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="{% url 'catalog:index1' %}">AMC</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'catalog:index1' %}">Home (>O.o<)<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'catalog:devices' %}">Devices</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'catalog:customers' %}">Customer</a>
+		</li>
+		<li class="nav-item">
+        <a class="nav-link" href="{% url 'catalog:inventory' %}">Inventory</a>
+		</li>
+          <li class="nav-item">
+        <a class="nav-link" href="{% url 'catalog:trackers' %}">Tracker</a>
+      </li>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin:index' %}">Manage</a>
+      </li>
+    </ul>
+    <form action="{% url 'catalog:search_result' %}" method="get" class="form-inline my-2 my-lg-0">
+      <input  name="q" type="text" class="form-control mr-sm-2" placeholder="Search...">
+    </form>
+  </div>
+</nav>
+     {% endblock %}
+
+    <div class="row">
+
+      <div class="col-sm-12 ">
+      {% block content %}
+
+      {% endblock %}
+
+
+          {% block pagination %}
+  {% if is_paginated %}
+
+          <nav aria-label="...">
+  <ul class="pagination justify-content-center pagination-sm">
+    <li class="page-item">
+        {% if page_obj.has_previous %}
+      <a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+        {% endif %}
+    </li>
+
+    <li class="page-item active">
+      <a class="page-link" href="#"> <span class="sr-only">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span></a>
+    </li>
+
+    <li class="page-item">
+        {% if page_obj.has_next %}
+      <a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+    </li>
+  </ul>
+</nav>
+
+  {% endif %}
+{% endblock %}
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

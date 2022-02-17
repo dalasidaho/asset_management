@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <br>
+  <br>
+  <div class="card" style="width: 20rem;">
+    <div class="card-body">
+      <div class="card-header">
+      <h5 class="card-title">Hostname: {{ device.title }}</h5>
+      <p class="card-text">PassID: {{ device.id }} </p>
+    </div>
+    </div>
+    <div class="card-body">
+        <p><strong>Status:</strong> {{ device.status_verbose }}</p>
+        <p><strong>Customer:</strong> <a href="{{ device.customer.get_absolute_url }}">{{ device.customer }}</a></p>
+        <p><strong>Department:</strong> {{ device.customer.department }}</p>
+        <p><strong>Location:</strong> {{ device.location }}</p>
+        <p><strong>Model:</strong> {{ device.model }}</p>
+        <p><strong>Serial:</strong> {{ device.serialn }}</p>
+        <p><strong>Asset Tag:</strong> {{ device.tag }}</p>
+        <p><strong>Purchase date:</strong> {{ device.buydate }}</p>
+   </div>
+  </div>
+
+
+</div>
+
+{% endblock %}

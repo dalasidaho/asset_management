@@ -1,0 +1,63 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'dt/datatables.min.css' %}"/>
+
+<script type="text/javascript" src="{% static 'dt/datatables.min.js' %}"></script>
+<div class="container">
+   <h1>Device List</h1>
+
+    <table id="device" class="table table-striped table-hover table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <td>Hostname</td>
+            <td>Customer</td>
+            <td>Model</td>
+            <td>S/N</td>
+            <td>Asset Tag</td>
+            <td>Status</td>
+            <td>Substatus</td>
+        </tr>
+        </thead>
+        {% if device_list %}
+        <tbody>
+          {% for device in device_list %}
+
+          <tr><td><a href="{{ device.get_absolute_url }}">{{ device.title }}</a></td>
+              <td>{{device.customer}}</td>
+              <td>{{device.model}}</td>
+              <td><a href="{{ device.get_absolute_url }}">{{device.serialn}}</a></td>
+              <td>{{device.tag}}</td>
+              <td>{{device.status_verbose}}</td>
+              <td>{{device.substatus_verbose}}</td>
+          </tr>
+
+      {% endfor %}
+        </tbody>
+
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %}
+        </table>
+
+
+
+</div>
+
+<script>
+    $(document).ready(function() {
+    $('#device').DataTable( {
+        "pagingType": "full_numbers",
+        "lengthMenu": [[25, 40, 60, -1], [25, 40, 60, "All"]],
+        "bProcessing":true
+    } );
+} );
+
+</script>
+<br>
+<br>
+<br>
+{% endblock %}
+

@@ -1,0 +1,104 @@
+
+{% load static %}
+{% load qr_code %}
+{% block content %}
+<!-- list build by pages for print stickers -->
+<style type="text/css">
+body{
+
+      font-family: Arial, Helvetica, sans-serif;
+      margin-top: 78;
+      margin-left: 36;
+      margin-right 36;
+    }
+.grid {
+
+      display: grid;
+      grid-template-columns: repeat(4, 178px);
+      grid-template-rows: repeat(12, 80px);
+    }
+
+.t {
+   transform: rotate(90deg);
+   transform-origin: top right;
+   margin-left: 7rem;
+
+}
+
+    /* cell view */
+    .grid > * {
+
+
+      background-color: #ffbf94;
+      border-radius: 5px;
+      padding: 1px;
+      margin: 4px;
+    }
+.page {
+        width: 200px;
+        height: 500px;
+        background: #DD5555;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+
+@media print {
+    .more {
+     page-break-after: auto;
+    }
+    .no-print {
+    visibility: hidden;
+
+  }
+   }
+
+
+  </style>
+
+
+{% if object_list %}
+
+    <div class="grid">
+    {% for device in object_list %}
+         <div>{% qr_from_text device.num size="T" %}
+              {% qr_from_text device.snum size="T" %}
+         <div class="t"><b>{{ device.snum }}<br>{{ device.num }}</b></div>
+        <br>
+
+         </div>
+    {% endfor %}
+
+
+    {% else %}
+      <p>There are no data in the table.</p>
+    {% endif %}
+    </div>
+<nav aria-label="...">
+<div class="pagination justify-content-center pagination-sm no-print">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class="page-item" href="?page=1">&laquo; first</a>
+            <a class="page-item" href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+
+            <a class="page-item" href="?page={{ page_obj.next_page_number }}">next</a>
+            <a class="page-item" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+
+    </span>
+</div>
+</nav>
+
+
+
+{% endblock %}

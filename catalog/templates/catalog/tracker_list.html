@@ -1,0 +1,46 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+<div class="container">
+   <h1>Tracking List</h1>
+
+    <table class="table table-striped table-hover table-bordered">
+    {% if tracker_list %}
+
+        <thead>
+                <tr>
+                    <td>Type</td>
+                    <td>Customer</td>
+                    <td>Reason</td>
+                    <td>From</td>
+                    <td>To</td>
+                    <td>Model</td>
+                    <td>S/N</td>
+                </tr>
+        </thead>
+
+      {% for tracker in tracker_list %}
+
+        <tbody>
+          <tr><td><a href="{{ tracker.get_absolute_url }}">{{tracker.name}}</a></td>
+              <td>{{tracker.customer}}</td>
+              <td>{{ tracker.notes_verbose }}</td>
+              <td>{{tracker.deptout}}</td>
+              <td>{{tracker.deptin}}</td>
+              <td>{{tracker.equip.model}}</td>
+              <td>{{tracker.equip.serialn}}</td>
+          </tr>
+        </tbody>
+      {% endfor %}
+
+
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %}
+        </table>
+
+</div>
+
+
+{% endblock %}

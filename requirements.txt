@@ -1,0 +1,4 @@
+django-bootstrap4
+python-dateutil
+django-import-export
+django-qr-code
