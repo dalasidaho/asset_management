@@ -1,6 +1,6 @@
 # Asset Management Catalog (Django)
 
-##Features at a glance
+## Features at a glance
 
 This application will help you manage equipment assets
 1. Add/Maintenance/Delete assets
@@ -9,7 +9,7 @@ This application will help you manage equipment assets
 4. Tracing assets (assigned to user and prints receipt document)
 
 ***
-###Frontend
+### Frontend
 
 ![Device list](https://github.com/dalasidaho/asset_management/blob/master/devlist.PNG?raw=true "Device list")
 
