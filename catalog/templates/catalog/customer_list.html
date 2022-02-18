@@ -1,32 +1,30 @@
 {% extends "base_generic.html" %}
-
-
 {% block content %}
 <div class="container">
    <h1>Customer List</h1>
 
     <table class="table table-striped table-hover table-bordered">
-    {% if customer_list %}
+        <thead class="thead-dark">
+            <tr>
+                <td>Customer</td>
+                <td>Department</td>
+                <td>Location</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% if customer_list %}
+                {% for customer in customer_list %}
+                  <tr><td><a href="{{ customer.get_absolute_url }}">{{ customer.last_name }}, {{customer.first_name}}</a></td>
+                  <td>{{customer.department}}</td>
+                  <td>{{customer.location}}</td>
+                  </tr>
 
-      {% for customer in customer_list %}
-
-          <tr><td><a href="{{ customer.get_absolute_url }}">{{ customer.last_name }}</a></td>
-              <td>{{customer.first_name}}</td>
-                <td>{{customer.department}}</td>
-              <td>{{customer.location}}</td>
-
-          </tr>
-
-      {% endfor %}
-
-
+                {% endfor %}
+        </tbody>
     {% else %}
-      <p>There are no books in the library.</p>
+      <p>There are no Customer.</p>
     {% endif %}
-        </table>
-
+    </table>
 </div>
-
-
 {% endblock %}
 
