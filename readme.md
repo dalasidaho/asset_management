@@ -18,6 +18,9 @@ This application will help you manage equipment assets
 ![Customer list](scr/customlist.PNG "Customer list")
 ![Tracking](scr/Track.PNG "Tracking")
 
+### Backend [interface](https://github.com/dalasidaho/asset_management/wiki/Backend-interfase "backend").
+
+
 ### Installation:
 ***
 install python-3.9.5 <br>
