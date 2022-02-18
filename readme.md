@@ -110,8 +110,8 @@ DATABASES = {
 
 9. Run Migrations (cmd)
 ```
-python3 manage.py makemigrations
-python3 manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
 ```
 
 10. Create superuser <br> (cmd)
