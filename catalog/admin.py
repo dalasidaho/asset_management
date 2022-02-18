@@ -43,18 +43,18 @@ admin.site.register(Customer, CustomerAdmin)
 #@admin.register(Device)
 
 class DeviceAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ('title', 'model', 'customer', 'serialn', 'type', 'tag', 'buydate', 'warranty', 'status', 'substatus', 'modified')
-    fields = ['title', ('model',  'serialn'), ('type', 'buydate',), ('customer', 'location'), ('tag', 'warranty'), ('status', 'substatus'), 'cost', 'notes']
-    search_fields = ['title', 'model__name', 'customer__last_name', 'serialn', 'tag', 'type__type', 'substatus']
+    list_display = ('hostname', 'model', 'customer', 'serialn', 'type', 'tag', 'buydate', 'warranty', 'status', 'substatus', 'modified')
+    fields = ['hostname', ('model',  'serialn'), ('type', 'buydate',), ('customer', 'location'), ('tag', 'warranty'), ('status', 'substatus'), 'cost', 'notes']
+    search_fields = ['hostname', 'model__name', 'customer__last_name', 'serialn', 'tag', 'type__type', 'substatus']
     resource_class = DevicelistResource
 
 
 admin.site.register(Device, DeviceAdmin)
 
 class ArchiveAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ('title', 'model', 'customer', 'serialn', 'type', 'tag', 'buydate', 'warranty', 'status', 'substatus', 'modified')
-    fields = ['title', ('model',  'serialn'), ('type', 'buydate',), ('customer', 'location'), ('tag', 'warranty'), ('status', 'substatus'), 'cost', 'notes']
-    search_fields = ['title', 'model__name', 'customer__last_name', 'serialn', 'tag', 'type__type', 'substatus']
+    list_display = ('hostname', 'model', 'customer', 'serialn', 'type', 'tag', 'buydate', 'warranty', 'status', 'substatus', 'modified')
+    fields = ['hostname', ('model',  'serialn'), ('type', 'buydate',), ('customer', 'location'), ('tag', 'warranty'), ('status', 'substatus'), 'cost', 'notes']
+    search_fields = ['hostname', 'model__name', 'customer__last_name', 'serialn', 'tag', 'type__type', 'substatus']
     resource_class = DevicelistResource
 
 

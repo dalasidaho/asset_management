@@ -25,7 +25,7 @@
         <tbody>
           {% for device in device_list %}
 
-          <tr><td><a href="{{ device.get_absolute_url }}">{{ device.title }}</a></td>
+          <tr><td><a href="{{ device.get_absolute_url }}">{{ device.hostname }}</a></td>
               <td>{{device.customer}}</td>
               <td>{{device.model}}</td>
               <td><a href="{{ device.get_absolute_url }}">{{device.serialn}}</a></td>

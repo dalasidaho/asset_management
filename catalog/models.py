@@ -33,7 +33,7 @@ class Device(models.Model):
     """
     Model representing a devices (details).
     """
-    title = models.CharField(max_length=20, verbose_name="Hostname")
+    hostname = models.CharField(max_length=20, null=False, blank=False, verbose_name="Hostname")
     serialn = models.CharField(max_length=30, null=True,  verbose_name="S/N", blank=True)
     customer = models.ForeignKey('Customer', on_delete=models.SET_NULL, null=True)
     model = models.ForeignKey('Model', on_delete=models.SET_NULL, null=True)
@@ -74,7 +74,7 @@ class Device(models.Model):
         """
         String for representing the Model object.
         """
-        return self.title
+        return self.hostname
 
     def display_customer(self):
         """
@@ -112,7 +112,7 @@ class Archive(models.Model):
     """
     Model representing a divice (copy of Device model for Archive if need).
     """
-    title = models.CharField(max_length=20, verbose_name="Hostname")
+    hostname = models.CharField(max_length=20, verbose_name="Hostname")
     serialn = models.CharField(max_length=30, null=True,  verbose_name="S/N", blank=True)
     customer = models.ForeignKey('Customer', on_delete=models.SET_NULL, null=True)
     model = models.ForeignKey('Model', on_delete=models.SET_NULL, null=True)
@@ -153,7 +153,7 @@ class Archive(models.Model):
         """
         String for representing the Device object.
         """
-        return self.title
+        return self.hostname
 
     def display_customer(self):
         """
