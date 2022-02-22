@@ -24,7 +24,7 @@ class Assettag(resources.ModelResource):
 #@admin.register(Tracker)
 class TrackerAdmin(admin.ModelAdmin):
     list_display = ('name', 'notes', 'customer', 'cus2', 'equip', 'credate', 'deptout', 'deptin')
-    fields = [('name', 'notes'), ('deptout', 'deptin'),  ('equip', 'equip1'), 'credate', 'customer', 'cus2']
+    fields = [('name', 'notes'), ('deptout', 'deptin'),  ('equip', 'equip1'), 'credate', ('customer', 'cus2')]
     search_fields = ['name', 'credate']
     class Meta:
         model = Tracker
