@@ -8,7 +8,7 @@ class DevicelistResource(resources.ModelResource):
         Import Device
     """
 
-    title = Field(attribute='title', column_name='Hostname')
+    hostname = Field(attribute='hostname', column_name='Hostname')
     customer = Field(attribute='customer', column_name='Customer', widget=ForeignKeyWidget(Customer, 'last_name'))
     model = Field(attribute='model', column_name='Model', widget=ForeignKeyWidget(Model, 'name'))
     serialn = Field(attribute='serialn', column_name='S/N')
