@@ -13,13 +13,13 @@ This application will help you manage equipment assets
 
 > [WiKi](https://github.com/dalasidaho/asset_management/wiki)
 ***
-### Frontend
+### Front-End
 
 ![Device list](scr/devlist.PNG "Device list")
 ![Customer list](scr/customlist.PNG "Customer list")
 ![Tracking](scr/Track.PNG "Tracking")
 
-### Backend [interface](https://github.com/dalasidaho/asset_management/wiki/Backend-interfase "backend").
+### Back-End [interface](https://github.com/dalasidaho/asset_management/wiki/Backend-interfase "backend").
 
 
 ### Installation:
