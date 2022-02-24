@@ -1,4 +1,4 @@
-# IT Asset Management Catalog (Django)
+# IT Asset Management System (Django)
 * If you manage a fleet of assets (Laptop, Desktop, Monitor) in an organization, you might have come across 
 the challenge of tracking their status and who is using them. This Django application has been built with 
 the aim of solving this issue.
